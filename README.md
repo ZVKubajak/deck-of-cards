@@ -8,13 +8,11 @@
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
   <a href="https://github.com/ZVKubajak/deck-of-cards/blob/main/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/ZVKubajak/Deck of Cards" />
+    <img alt="License: MIT" src="https://img.shields.io/github/license/ZVKubajak/deck-of-cards" />
   </a>
 </p>
 
 > A Python application that simulates the actions of drawing from and shuffling a standard 52-card deck.
-
-### 🏠 [Homepage](https://github.com/kefranabg/readme-md-generator#readme)
 
 ## Usage
 
