@@ -1,23 +1,17 @@
-import deck as d
-print(f"{d}")
+# from deck_standard import deck
 
 if __name__ == "__main__":
-    menu = {
-        "y": "Play",
-        "n": "Exit"
-    }
 
     while True:
         print("Do you want to play Blackjack? (y/n)")
 
-        choice = input("Choice: ")
-        choice = choice.lower()
+        res = input("Choice: ")
+        res = res.lower()
 
-        if choice in menu:
-
-            if choice == "y":
-                continue
-            elif choice == "n":
-                break
+        if res == "y":
+            break
+        elif res == "n":
+            print("Exiting...")
+            exit()
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid response. Please try again.")
