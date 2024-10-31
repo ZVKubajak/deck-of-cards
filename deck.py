@@ -81,6 +81,12 @@ def draw_card(deck):
         return
 
 
+def shuffle_deck(deck):
+    for card in deck:
+        value, _ = deck[card]
+        deck[card] = (value, False)
+
+
 if __name__ == "__main__":
     options = {
         "1": "Draw A Card",
@@ -101,8 +107,8 @@ if __name__ == "__main__":
                 draw_card(deck)
                 continue
             elif choice == "2":
-                print("Shuffling the deck...\n"
-                      "(functionality not implemented yet)")
+                shuffle_deck(deck)
+                print("Deck Shuffled!")
                 continue
             elif choice == "3":
                 print("Exiting...")
