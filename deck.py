@@ -1,3 +1,5 @@
+import random
+
 deck = {
     # Clubs
     "2 of Clubs": 2,
@@ -60,6 +62,13 @@ deck = {
     "Ace of Hearts": [1, 11]
 }
 
+
+def draw_card(deck):
+    card, (value, has_been_drawn) = random.choice(list(deck.items()))
+    # (value = numeric value & has_been_drawn = boolean status)
+    return card, (value, has_been_drawn)
+
+
 if __name__ == "__main__":
     options = {
         "1": "Draw A Card",
@@ -77,9 +86,15 @@ if __name__ == "__main__":
         if choice in options:
 
             if choice == "1":
-
+                card, (value, has_been_drawn) = draw_card(deck)
+                print(f"You drew the {card} with a value of {value}.")
+                continue
             elif choice == "2":
-
+                print("Shuffling the deck...\n"
+                      "(functionality not implemented yet)")
+                continue
             elif choice == "3":
-
-            else:
+                print("Exiting...")
+                break
+        else:
+            print("Invalid choice. Please try again.")
