@@ -61,7 +61,25 @@ deck = {
 }
 
 if __name__ == "__main__":
-    interface = {
+    options = {
         "1": "Draw A Card",
-        "2": "Shuffle Deck"
+        "2": "Shuffle Deck",
+        "3": "Exit"
     }
+
+    while True:
+        print("Select an option:\n"
+              "1: Draw A Card\n"
+              "2: Shuffle Deck\n"
+              "3: Exit")
+
+        choice = input("Choice: ")
+        if choice in options:
+
+            if choice == "1":
+
+            elif choice == "2":
+
+            elif choice == "3":
+
+            else:
