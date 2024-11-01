@@ -58,6 +58,7 @@ if __name__ == "__main__":
         if res == "y":
             break
         elif res == "n":
+            print("")
             print("Exiting...")
             exit()
         else:
@@ -179,3 +180,19 @@ if __name__ == "__main__":
 
         print("Press Enter to continue...")
         input()
+
+        # * Play Again
+        while True:
+            print("Play Another Round? (y/n)")
+
+            res = input("Choice: ")
+            res = res.lower()
+
+            if res == "y":
+                break
+            elif res == "n":
+                print("")
+                print("Thanks for playing!")
+                exit()
+            else:
+                print("Invalid response. Please try again.")
