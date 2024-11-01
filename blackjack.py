@@ -15,7 +15,7 @@ def draw_game_card(deck):
 
 
 def find_card_value(total, next_value, aces_count):
-    if next_value in [1, 11]:  # If it's an Ace.
+    if isinstance(next_value, list):  # If it's an Ace.
 
         if total + 11 <= 21:
             total += 11  # Ace is 11.
@@ -80,5 +80,11 @@ if __name__ == "__main__":
         print(f"Round: {round_count}")
         print("")
 
-        # print(f"You have been dealt The {card1} and The {card2}.")
+        print(f"You have been dealt The {p_card1} and The {p_card2}.")
+
+        if player_total == 21:
+            print("Your hand is at 21. Blackjack!")
+        else:
+            print(f"Your hand is at {player_total}.\n"
+                  f"Dealer is showing The {d_card1}.")
         break
