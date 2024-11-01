@@ -83,12 +83,49 @@ if __name__ == "__main__":
         print(f"You have been dealt The {p_card1} and The {p_card2}.")
 
         if player_total == 21:
-            if dealer_total == 21:
-                print("Your hand is at 21, but so is the dealer's! Push!")
-            else:
-                print("Your hand is at 21. Blackjack!")
+            print("Your hand is at 21. Blackjack!")
+            exit()
         else:
             print(f"Your hand is at {player_total}.\n"
                   f"Dealer is showing The {d_card1}.")
+
+            print("Press Enter to continue...")
+            input()
+
+            while True:  # Nested while loop for player actions.
+                print("What would you like to do?\n"
+                      "1. Hit\n"
+                      "2. Stand\n"
+                      "3. View Dealer's Card")
+
+                action = input("Choice: ")
+
+                if action == "1":
+                    drawn_card = draw_game_card(deck)
+                    player_hand.append(drawn_card)
+                    player_total = calculate_hand_total(player_hand)
+
+                    print(f"You hit for The {drawn_card}.")
+
+                    if player_total > 21:
+                        print(f"Your hand is at {player_total}. Bust!")
+                        break
+                    elif player_total == 21:
+                        print("Your hand is at 21. Blackjack!")
+                        break
+                    else:
+                        print(f"Your hand is at {player_total}.")
+                        continue
+
+                elif action == "2":
+                    print(f"You chose to stand at {player_total}.")
+                    continue
+
+                elif action == "3":
+                    print(f"Dealer is showing The {d_card1}.")
+                    continue
+
+                else:
+                    print("Invalid action. Plase try again.")
 
         break
