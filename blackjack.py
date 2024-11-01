@@ -63,6 +63,7 @@ if __name__ == "__main__":
         else:
             print("Invalid response. Please try again.")
 
+    # * Game Start & Deal
     while True:
         round_count += 1
 
@@ -84,7 +85,7 @@ if __name__ == "__main__":
 
         if player_total == 21:
             print("Your hand is at 21. Blackjack!")
-            exit()
+            break
         else:
             print(f"Your hand is at {player_total}.\n"
                   f"Dealer is showing The {d_card1}.")
@@ -92,6 +93,7 @@ if __name__ == "__main__":
             print("Press Enter to continue...")
             input()
 
+            # * Player's Turn
             while True:  # Nested while loop for player actions.
                 print("What would you like to do?\n"
                       "1. Hit\n"
@@ -105,21 +107,21 @@ if __name__ == "__main__":
                     player_hand.append(drawn_card)
                     player_total = calculate_hand_total(player_hand)
 
-                    print(f"You hit for The {drawn_card}.")
+                    print(f"You draw The {drawn_card}.")
 
                     if player_total > 21:
                         print(f"Your hand is at {player_total}. Bust!")
                         break
                     elif player_total == 21:
                         print("Your hand is at 21. Blackjack!")
-                        break
+                        continue
                     else:
                         print(f"Your hand is at {player_total}.")
                         continue
 
                 elif action == "2":
                     print(f"You chose to stand at {player_total}.")
-                    continue
+                    break
 
                 elif action == "3":
                     print(f"Dealer is showing The {d_card1}.")
@@ -128,4 +130,41 @@ if __name__ == "__main__":
                 else:
                     print("Invalid action. Plase try again.")
 
-        break
+            print(f"Dealer reveals his second card, The {d_card2}.")
+
+            # * Dealer's Turn
+            while True:  # Nested while loop for dealer actions.
+
+                if dealer_total < 17:
+                    drawn_card = draw_game_card(deck)
+                    dealer_hand.append(drawn_card)
+                    dealer_total = calculate_hand_total(dealer_hand)
+
+                    print(f"Dealer hits. He draws The {drawn_card}.")
+                    continue
+
+                elif dealer_total >= 17 and dealer_total < 21:
+                    print(f"Dealer stands at {dealer_total}.")
+
+                    if dealer_total < player_total:
+                        print("You win the round!")
+                    elif dealer_total > player_total:
+                        print("You lose the round.")
+                    elif dealer_total == player_total:
+                        print(f"It's a tie for {dealer_total}. Push!")
+
+                    break
+
+                elif dealer_total == 21:
+                    print("Dealer stands at 21.")
+
+                    if dealer_total == player_total:
+                        print("Both sides have Blackjack. Push!")
+                    else:
+                        print("Dealer has Blackjack. You lose the round.")
+
+                    break
+
+                else:
+                    print("Dealer busts. You win the round!")
+                    break
