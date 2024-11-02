@@ -189,6 +189,8 @@ if __name__ == "__main__":
             res = res.lower()
 
             if res == "y":
+                player_turn = True
+                dealer_turn = True
                 break
             elif res == "n":
                 print("")
